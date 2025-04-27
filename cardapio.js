@@ -1,5 +1,7 @@
+// cardapio.js
+
 import { db } from './firebase.js';
-import { collection, getDocs } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+import { collection, getDocs } from "firebase/firestore";
 
 const container = document.querySelector(".produtos-container");
 
@@ -81,7 +83,6 @@ function adicionarEventosCompra() {
     });
 }
 
-
 function addToCart(produto) {
     let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
@@ -99,4 +100,5 @@ function addToCart(produto) {
     alert(`${produto.nome} adicionado ao carrinho!`);
 }
 
-document.addEventListener("DOMContentLoaded", carregarCardapio);
+// Aqui exportamos as funções para poder testá-las
+export { carregarCardapio, adicionarEventosCompra, addToCart };
